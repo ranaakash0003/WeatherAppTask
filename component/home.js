@@ -34,7 +34,13 @@ const home = () => {
     
     useEffect(() => {
         getData()
-    },[])
+        const intervalId =  setInterval(() =>{
+             getData()
+          },10000)
+          return()=>{
+              clearInterval(intervalId)
+          }
+     },[])
 
     const search = async(e)=> {
         if(e.key === 'Enter'){
